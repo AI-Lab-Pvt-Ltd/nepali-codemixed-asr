@@ -1,0 +1,11 @@
+# Core SraVaani training/evaluation; install a CUDA-compatible PyTorch first.
+# Starting constraints, not a validated environment lock.
+nemo_toolkit[asr]>=2.7,<3
+lightning>=2.4,<3
+omegaconf>=2.3,<3
+numpy>=1.26
+soundfile>=0.12
+sentencepiece>=0.2
+jiwer>=3,<5
+scipy>=1.11
+num2words>=0.5.13

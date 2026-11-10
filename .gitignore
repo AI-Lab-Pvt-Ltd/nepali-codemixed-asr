@@ -1,0 +1,37 @@
+# Local credentials and environments
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+# Research inputs, generated outputs and third-party snapshots
+/data/
+/data_*/
+/experiments/
+/reports/
+/work/
+/wandb/
+/assets/
+/external/
+/paper/
+/scripts/backup_*/
+*.nemo
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.wav
+*.mp3
+*.flac
+*.tar
+*.parquet
+*.log

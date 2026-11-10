@@ -1,0 +1,25 @@
+{
+  "sha256": {
+    "README.md": "dc73feb3891e9c187229256b7064fc13a50250fe0183923da7a6a64c42149363",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "NOTICE": "c9bb8cb7b47933be2193d82278016be1050352b06ae90feb4f401c2e8b8193ca",
+    "THIRD_PARTY_NOTICES.md": "c8b1e63407d0e1ca41e0a9db1cbb558289725dceeb99369d4be45ef323613cea",
+    "CONTRIBUTING.md": "951e1914a822ab5575eec050c9e9ae7fa7e33568b7a90d629be8606eae2af2ff",
+    "CODE_OF_CONDUCT.md": "617dc8920b21413270a736edade17e5eece94fdebb4465769d9bf05259badb9b",
+    "SECURITY.md": "765db2e791f12f4c836c922ce93589c732de4e6378c6cabd415a5d628198fbc0",
+    ".gitignore": "c7abd47f5d744889e5ddbd3c7b33a2376afb6b83fb9f17a13902daa8c06fae83",
+    "requirements.txt": "60e968f3f3fb8c8e0cd9a8b3e01e945fecdb1ab7f3544580a4adc9ebd1d08eb4",
+    "requirements-text.txt": "6f73b4d13cc622d33b5e6c469e46e63f5a8cb8513748216694e8d17a5a435d93",
+    "docs/EXPERIMENT_NOTES.md": "c65217589e84c8233270dd355ec0d4f48669fe646f5b865a05febf858123eff8",
+    "docs/RELEASING.md": "889cf557c7e61a8e784f2ba85e454409b27572a4268e045fbca58ce8c5b848d3",
+    ".github/workflows/ci.yml": "ac6293e43eac5ca045a8707ff011b76f52793bb173d8438349f9f4a4d8a40938",
+    ".github/ISSUE_TEMPLATE/bug_report.md": "c10a077c30db6518d16aeddd03108f8ff3e7f623f9e94649ae8b2bbfdd25076c",
+    ".github/pull_request_template.md": "9ba4b5be003fee3cdc8b0ebb25281407112b717bf58a1d5ee8a25a73e6b605ba",
+    "scripts/finetune_nepali.py": "7c3ff45bdc80d361b4f59f55513717219260791c16c333645ce0d156a6cdb195",
+    "scripts/evaluate_nepali.py": "6cfb59f4e0bd41518aeff2b1bb372ac5201f06b387338a235f41d3d5b139796b",
+    "scripts/sravaani_text.py": "9427c17b360739e224669e162f3c3aabca3ddb413678b2d1d44aca29cade71a9",
+    "scripts/test_sravaani_text.py": "75fefca7c13523e3d7228013702aeac76e1f12f9bf5347e9d8c218585f61f13d",
+    "scripts/noise_augment.py": "82a286c6d417107416428cef3aba9ac8874fc68277c2bbc9e89fc31cbcc38e3e",
+    "scripts/prepare_release.py": "54a068024f534925c65d2784e50e17d906f75c09de04dca0691a3da8888ec8b1"
+  }
+}
