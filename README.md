@@ -1,10 +1,34 @@
-# SraVaani Nepali fine-tuning
+# Nepali–English Code-Mixed Speech Recognition: Data Preparation and Adaptation of a Speech Foundation Model
 
-An open source contribution from **AI Lab Pvt. Ltd.** for adapting SraVaani speech recognition to Nepali and Nepali–English code-mixed speech using NVIDIA NeMo.
+[![Core checks](https://github.com/AI-Lab-Pvt-Ltd/nepali-codemixed-asr/actions/workflows/ci.yml/badge.svg)](https://github.com/AI-Lab-Pvt-Ltd/nepali-codemixed-asr/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
-The core workflow provides tarred-dataset checks, tokenizer compatibility checks, fine-tuning with optional encoder freezing, checkpoint resume, best-model export, and evaluation with WER, CER and English-word WER.
+Official code and data preparation pipeline for the paper:
+> **Nepali–English Code-Mixed Speech Recognition: Data Preparation and Adaptation of a Speech Foundation Model**  
+> *Jeevan Neupane, Janardan Bhetwal, Kshitiz Paudel, Anup Aryal, Bipin Bashyal*  
+> **AI Lab Pvt. Ltd., Nepal**  
+> Contact: `{jeevanneupane, janardanbhetwal, kshitizpaudel, anuparyal, bipinbashyal}@ailab.com.np`
 
-Company-authored code is licensed under [Apache-2.0](LICENSE). Model weights, datasets, tokenizers and third-party code retain their own terms; see [third-party notices](THIRD_PARTY_NOTICES.md). This release does not include training audio, transcripts or model weights.
+---
+
+## Abstract
+
+Nepali speakers regularly mix English words into conversation, but multilingual speech recognisers often struggle with language switches and the writing script used for English words. We study how to adapt SraVaani, a 449M-parameter hybrid TDT–CTC model, using a 172.8-hour corpus covering six Nepali speech domains. Its pretrained tokenizer does not support digits and several common symbols. Rather than replace it or discard these recordings, we generate Nepali and English readings for numbers and use zero-shot ASR output to select a plausible form. Full fine-tuning reduces test word error rate (WER) from 48.6% to 17.1%; a 12-epoch run reaches 16.3%, compared with 16.4% for fine-tuned Whisper large-v3-turbo. Freezing the encoder increases WER to 25.5%, while excluding numeric clips raises WER on numeric test speech from 14.3% to 21.3%. We also evaluate on FLEURS using both its original references and mixed-script alternatives. The comparison shows that transcription conventions explain part, but not all, of the out-of-domain performance loss.
+
+### Key Benchmark Results
+
+| Model / Configuration | Test WER (%) | Note |
+|---|---|---|
+| SraVaani (Zero-shot base) | 48.6% | Base model without adaptation |
+| SraVaani (Frozen Encoder, 2 epochs) | 25.5% | Official recipe with frozen encoder |
+| SraVaani (Full Fine-tuning, 10 epochs) | 17.1% | End-to-end with encoder LR scale 0.5 |
+| **SraVaani (Full Fine-tuning, 12 epochs)** | **16.3%** | **Best model** |
+| Whisper large-v3-turbo (Fine-tuned) | 16.4% | Baseline comparison |
+
+- **Number verbalization impact:** Excluding numeric clips degrades WER on numeric test speech from 14.3% to 21.3%.
+- Company-authored code is licensed under [Apache-2.0](LICENSE). Model weights, datasets, tokenizers and third-party code retain their own terms; see [third-party notices](THIRD_PARTY_NOTICES.md). This release does not include training audio, transcripts or model weights.
+
+---
 
 ## Setup
 
@@ -50,7 +74,7 @@ python scripts/evaluate_nepali.py \
 
 The defaults train for 10 epochs with batch size 8, gradient accumulation 8 and bf16 precision. If GPU memory is insufficient, try `--batch-size 4 --accumulate 16`. Training exports best and last `.nemo` models plus Lightning checkpoints. Resume the same run with the same arguments and `--resume`. Evaluation writes aggregate metrics and per-clip predictions to `reports/`; predictions may contain sensitive speech content.
 
-For text normalization only:
+For text normalization and number verbalization:
 
 ```bash
 python -m pip install -r requirements-text.txt
@@ -67,15 +91,14 @@ Maintainers: use the [release checklist](docs/RELEASING.md) and `python scripts/
 
 ## Citation
 
-If you find this repository or codebase helpful in your research, please cite:
+If you use this work, codebase, or findings in your research, please cite our paper:
 
 ```bibtex
-@misc{ailab2026nepalicodemixedasr,
-  author = {{AI Lab Pvt. Ltd.}},
-  title = {Nepali and Nepali-English Code-Mixed Speech Recognition with SraVaani},
-  year = {2026},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/AI-Lab-Pvt-Ltd/nepali-codemixed-asr}}
+@article{neupane2026nepali,
+  title={Nepali--English Code-Mixed Speech Recognition: Data Preparation and Adaptation of a Speech Foundation Model},
+  author={Neupane, Jeevan and Bhetwal, Janardan and Paudel, Kshitiz and Aryal, Anup and Bashyal, Bipin},
+  journal={arXiv preprint},
+  year={2026},
+  url={https://github.com/AI-Lab-Pvt-Ltd/nepali-codemixed-asr}
 }
 ```

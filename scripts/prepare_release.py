@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FILES = (
     'README.md', 'LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md',
     'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', '.gitignore',
-    'requirements.txt', 'requirements-text.txt',
+    'CITATION.cff', 'requirements.txt', 'requirements-text.txt',
     'docs/EXPERIMENT_NOTES.md', 'docs/RELEASING.md',
     '.github/workflows/ci.yml', '.github/ISSUE_TEMPLATE/bug_report.md',
     '.github/pull_request_template.md',
